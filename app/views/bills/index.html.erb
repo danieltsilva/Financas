@@ -7,7 +7,6 @@
         <div class="row-fluid">
           <div class="span12">
             <div class="padded">
-
               <div class="section-title">Contas a pagar</div>
 
               <div class="box bordered" style="position:relative;">
@@ -38,7 +37,7 @@
                           <td><%= bill.account.name %></td>
                           <td><%= bill.category %></td>
                           <td width="160px" >
-                              <%= link_to 'Pagar', bill, :class => 'btn btn-mini medium-blue' %>
+                              <%= link_to 'Pagar', pay_bill_path(bill), :class => 'btn btn-mini medium-blue' %>
                               <%= link_to 'Detalhar', bill, :class => 'btn btn-mini medium-blue' %>
                           </td>
                       </tr>

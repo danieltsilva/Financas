@@ -8,7 +8,7 @@
           <div class="span12">
             <div class="padded">
 
-              <div class="section-title">Conta a pagar</div>
+              <div class="section-title">Conta a ser aprovada</div>
 
               <p id="notice"><%= notice %></p>
 
@@ -48,8 +48,8 @@
               </p>
 
 
-              <%= link_to 'Editar', edit_bill_path(@bill), :class => 'btn btn-mini medium-blue' %> 
-              <%= link_to 'Voltar', bills_path, :class => 'btn btn-mini medium-blue' %>
+              <%= link_to 'Aprovar', approveexec_bill_path(@bill), :class => 'btn btn-mini medium-blue' %> 
+              <%= link_to 'Voltar', "/bills/requests", :class => 'btn btn-mini medium-blue' %>
             </div>
           </div>
         </div>

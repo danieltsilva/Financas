@@ -13,12 +13,12 @@ development:
   encoding: utf8
   host: 127.0.0.1
   username: root
-  password:
+  #password:
   reconnect: false
   database: financas
   pool: 5
   #socket: /var/run/mysqld/mysqld.sock
-  
+
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -30,7 +30,7 @@ test:
   database: financas_test
   pool: 5
   username: root
-  password: root
+  #password: root
   socket: /var/run/mysqld/mysqld.sock
 
 production:
@@ -40,5 +40,5 @@ production:
   database: financas_production
   pool: 5
   username: root
-  password: root
+  #password: root
   socket: /var/run/mysqld/mysqld.sock

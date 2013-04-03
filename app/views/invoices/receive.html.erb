@@ -48,9 +48,31 @@
               </p>
 
 
-              <%= link_to 'Editar', edit_invoice_path(@invoice), :class => 'btn btn-mini medium-blue' %> 
+              <p>
+                <b>Escolha a Conta para receber:</b>
+                <table class="table table-striped data-table">
+                  <tr>
+                    <th>Nome</th>
+                    <th>Número</th>
+                    <th>Saldo</th>
+                    <th></th>
+                  </tr>
+
+                <% @accounts.each do |account| %>
+                  <tr>
+                    <td><%= account.name %></td>
+                    <td><%= account.number %></td>
+                    <td>100.00</td>
+                  <td><%= link_to 'Receber', receiveexec_invoice_path(@invoice, account_id: account), :class => 'btn btn-mini medium-blue'%></td>
+                  </tr>
+                <% end %>
+                </table>
+              </p>
+
               <%= link_to 'Voltar', invoices_path, :class => 'btn btn-mini medium-blue' %>
+
             </div>
+
           </div>
         </div>
       </div>

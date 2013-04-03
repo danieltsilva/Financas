@@ -1,0 +1,71 @@
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span12">
+
+      <div class="box bordered">
+
+        <div class="row-fluid">
+          <div class="span12">
+            <div class="padded">
+
+              <div class="section-title">Pagar Conta</div>
+
+              <p id="notice"><%= notice %></p>
+
+              <p>
+                <b>Número:</b>
+                <%= @bill.number %>
+              </p>
+
+              <p>
+                <b>Data do pagamento:</b>
+                <%= @bill.payment_date %>
+              </p>
+
+              <p>
+                <b>Categoria:</b>
+                <%= @bill.category %>
+              </p>
+
+              <p>
+                <b>Método de pagamento:</b>
+                <%= @bill.payment_method %>
+              </p>
+
+              <p>
+                <b>Valor:</b>
+                <%= @bill.amount %>
+              </p>
+
+
+              <p>
+                <b>Escolha a Conta para pagar:</b>
+                <table class="table table-striped data-table">
+                  <tr>
+                    <th>Nome</th>
+                    <th>Número</th>
+                    <th>Saldo</th>
+                    <th></th>
+                  </tr>
+
+                <% @accounts.each do |account| %>
+                  <tr>
+                    <td><%= account.name %></td>
+                    <td><%= account.number %></td>
+                    <td>100.00</td>
+                    <td><%= link_to 'Pagar', payexec_bill_path(@bill, account_id: account), :class => 'btn btn-mini medium-blue'%></td>
+                  </tr>
+                <% end %>
+                </table>
+              </p>
+
+              <%= link_to 'Voltar', bills_path, :class => 'btn btn-mini medium-blue' %>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

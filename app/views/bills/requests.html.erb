@@ -1,5 +1,5 @@
 <div class="container-fluid">
- <div class="row-fluid">
+  <div class="row-fluid">
     <div class="span12">
 
       <div class="box bordered">
@@ -7,12 +7,11 @@
         <div class="row-fluid">
           <div class="span12">
             <div class="padded">
+              <div class="section-title">Contas a serem aprovadas</div>
 
-              <div class="section-title">Contas a receber</div>
-
-
+              <div class="box bordered" style="position:relative;">
               <div class="box-header" >
-                <i class="icon-signal"></i> Lista de contas a receber
+                <i class="icon-signal"></i> Lista de contas a serem aprovadas
               </div>
 
               <table class="table table-striped data-table">
@@ -30,16 +29,16 @@
 
                 <tbody>
 
-                  <% @invoices.each do |invoice| %>
+                  <% @bills.each do |bill| %>
                       <tr>
-                          <td><%= invoice.number %></td>
-                          <td><%= invoice.payment_date %></td>
-                          <td>R$<%= invoice.amount %></td>
-                          <td><%= invoice.account.name %></td>
-                          <td><%= invoice.category %></td>
+                          <td><%= bill.number %></td>
+                          <td><%= bill.payment_date %></td>
+                          <td>R$<%= bill.amount %></td>
+                          <td><%= bill.account.name %></td>
+                          <td><%= bill.category %></td>
                           <td width="160px" >
-                              <%= link_to 'Receber', receive_invoice_path(invoice), :class => 'btn btn-mini medium-blue' %>
-                              <%= link_to 'Detalhar', invoice, :class => 'btn btn-mini medium-blue' %>
+                              <%= link_to 'Aprovar', approve_bill_path(bill), :class => 'btn btn-mini medium-blue' %>
+                              <%= link_to 'Detalhar', bill, :class => 'btn btn-mini medium-blue' %>
                           </td>
                       </tr>
                 <% end %>
@@ -49,11 +48,11 @@
               </div>
               <br />
 
-              <%= link_to 'Nova conta a receber', new_invoice_path, :class => 'btn btn-mini medium-blue' %>
+              <%= link_to 'Nova conta a pagar', new_bill_path, :class => 'btn btn-mini medium-blue' %>
             </div>
           </div>
-
+        </div>
       </div>
     </div>
-  </div> 
+  </div>
 </div>

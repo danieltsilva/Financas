@@ -2,7 +2,7 @@ class InvoicesController < ApplicationController
   # GET /invoices
   # GET /invoices.json
   def index
-    @invoices = Invoice.all
+    @invoices = Invoice.where :paid => nil
 
     respond_to do |format|
       format.html # index.html.erb
@@ -25,6 +25,7 @@ class InvoicesController < ApplicationController
   # GET /invoices/new.json
   def new
     @invoice = Invoice.new
+    @invoice.paid = false
 
     respond_to do |format|
       format.html # new.html.erb
@@ -80,4 +81,38 @@ class InvoicesController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def receive
+    @invoice = Invoice.find(params[:id])
+    @accounts = Account.all
+
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @invoice  }
+    end
+  end
+
+  def receiveexec
+    @invoice = Invoice.find(params[:id])
+    @account = Account.find(params[:account_id])
+
+    @transaction = Transaction.new
+    @transaction.date = @invoice.payment_date
+    #@transaction.category = @bill.category
+    @transaction.number = @invoice.number
+    @transaction.description = "Recebimento de Conta"
+    @transaction.amount = @invoice.amount
+    @transaction.account = @account
+
+    @transaction.save
+
+    @invoice.paid = true
+    @invoice.save
+
+    respond_to do |format|
+      format.html { redirect_to invoices_url }
+      format.json { head :no_content }
+    end
+  end
+
 end
