@@ -9,7 +9,7 @@ Teste
           <div class="span12">
             <div class="padded">
 
-              <div class="section-title">Movimentação</div>
+              <div class="section-title">Categorias</div>
 
 
               <div class="box bordered" style="position:relative;">
@@ -22,9 +22,7 @@ Teste
                 <thead>
                   <tr>
                       <th>Nome</th>
-                      <th></th>
-                      <th></th>
-                      <th></th>
+                      <th>Ações</th>
                   </tr>
                 </thead>
 
@@ -33,10 +31,13 @@ Teste
                  <% @categories.each do |category| %>
                       <tr>
                         <td><%= category.name %></td>
-                        <td width="160px"><%= link_to 'Detalhar', category, :class => 'btn btn-mini medium-blue'   %></td>
-                        <td><%= link_to 'Editar', edit_category_path(category), :class => 'btn btn-mini medium-blue'  %></td>
-                        <td><%= link_to 'Deletar', category, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-mini medium-blue' %></td>
-                      </tr>
+                        <td>
+
+                        <%= link_to 'Detalhar', category, :class => 'btn btn-mini medium-blue'   %>
+                        <%= link_to 'Editar', edit_category_path(category), :class => 'btn btn-mini medium-blue'  %>
+                        <%= link_to 'Deletar', category, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-mini medium-blue' %>
+                       </td>
+                     </tr>
                 <% end %>
 
                 </tbody>
@@ -45,6 +46,7 @@ Teste
               <br />
 
               <%= link_to 'Nova Categoria', new_category_path, :class => 'btn btn-mini medium-blue' %>
+
 
             </div>
           </div>
