@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Status:</b>
+  <%= @chamado.status %>
+</p>
+
+<p>
+  <b>Ativo:</b>
+  <%= @chamado.ativo %>
+</p>
+
+<p>
+  <b>Descricao:</b>
+  <%= @chamado.descricao %>
+</p>
+
+<p>
+  <b>Prioridade:</b>
+  <%= @chamado.prioridade %>
+</p>
+
+<p>
+  <b>Data abertura:</b>
+  <%= @chamado.data_abertura %>
+</p>
+
+<p>
+  <b>Data fechamento:</b>
+  <%= @chamado.data_fechamento %>
+</p>
+
+
+<%= link_to 'Edit', edit_chamado_path(@chamado) %> |
+<%= link_to 'Back', chamados_path %>

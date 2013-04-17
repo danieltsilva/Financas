@@ -1,0 +1,16 @@
+<%= simple_form_for(@chamado) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :status %>
+    <%= f.input :ativo %>
+    <%= f.input :descricao %>
+    <%= f.input :prioridade %>
+    <%= f.input :data_abertura %>
+    <%= f.input :data_fechamento %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

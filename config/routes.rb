@@ -1,5 +1,7 @@
 Financas::Application.routes.draw do
   
+  resources :chamados
+
   resources :invoices do
    member do
      get 'receive'

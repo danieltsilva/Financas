@@ -1,0 +1,60 @@
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span12">
+
+      <div class="box bordered">
+
+        <div class="row-fluid">
+          <div class="span12">
+            <div class="padded">
+              <div class="section-title">Chamados</div>
+
+              <div class="box bordered" style="position:relative;">
+              <div class="box-header" >
+                <i class="icon-signal"></i> Lista de chamados
+              </div>
+
+              <table class="table table-striped data-table">
+
+                <thead>
+                <tr>
+                    <th>Status</th>
+                    <th>Ativo</th>
+                    <th>Descricao</th>
+                    <th>Prioridade</th>
+                    <th>Data abertura</th>
+                    <th>Data fechamento</th>
+                    <th></th>
+                </tr>
+                </thead>
+
+                <tbody>
+
+                  <% @chamados.each do |chamado| %>
+                      <tr>
+                        <td><%= chamado.status %></td>
+                        <td><%= chamado.ativo %></td>
+                        <td><%= chamado.descricao %></td>
+                        <td><%= chamado.prioridade %></td>
+                        <td><%= chamado.data_abertura %></td>
+                        <td><%= chamado.data_fechamento %></td>
+                          <td width="160px" >
+                              <%= link_to 'Editar', edit_chamado_path(chamado), :class => 'btn btn-mini medium-blue' %>
+                              <%= link_to 'Detalhar', chamado, :class => 'btn btn-mini medium-blue' %>
+                          </td>
+                      </tr>
+                <% end %>
+
+                </tbody>
+              </table>
+              </div>
+              <br />
+
+              <%= link_to 'Novo chamado', new_chamado_path, :class => 'btn btn-mini medium-blue' %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
