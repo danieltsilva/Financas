@@ -39,8 +39,9 @@
                         <td><%= chamado.data_abertura %></td>
                         <td><%= chamado.data_fechamento %></td>
                           <td width="160px" >
-                              <%= link_to 'Editar', edit_chamado_path(chamado), :class => 'btn btn-mini medium-blue' %>
                               <%= link_to 'Detalhar', chamado, :class => 'btn btn-mini medium-blue' %>
+                              <%= link_to 'Editar', edit_chamado_path(chamado), :class => 'btn btn-mini medium-blue' %>
+                              <%= link_to 'Apagar', chamado, method: :delete, data: { confirm: 'Tem certeza que deseja apagar dos registros?' }, :class => 'btn btn-mini medium-blue' %>
                           </td>
                       </tr>
                 <% end %>
